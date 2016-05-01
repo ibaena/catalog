@@ -3,7 +3,8 @@
 Template.CatalogSingle.onCreated(function(){
   var self = this;
   self.autorun(function(){
-    self.subscribe("catalogs");
+    var id = FlowRouter.getParam('id');
+    self.subscribe("singleCatalog", id);
   });
 });
 
