@@ -1,9 +1,20 @@
-Catalogs = new Meteor.Collection('catalogs');
+Catalogs = new Mongo.Collection('catalogs');
 
 //RULES - PERMISSIONS
 Catalogs.allow({
-  insert: function(userId, doc){
+  insert: function(userId, doc) {
     return !!userId;
+  }
+});
+
+Specs = new SimpleSchema({
+  name: {
+    type: String,
+    label: "Name"
+  },
+  desc: {
+    type: String,
+    label: "Description"
   }
 });
 
@@ -17,6 +28,17 @@ CatalogSchema = new SimpleSchema({
   desc: {
     type: String,
     label: "Description"
+  },
+  inMenu: {
+    type: Boolean,
+    defaultValue: false,
+    optional: true,
+    autoform: {
+      type: "hidden"
+    }
+  },
+  specs: {
+    type: [Specs]
   },
   author: {
     type: String,
