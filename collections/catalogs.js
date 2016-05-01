@@ -1,7 +1,14 @@
 Catalogs = new Meteor.Collection('catalogs');
 
-//SCHEMA
+//RULES - PERMISSIONS
+Catalogs.allow({
+  insert: function(userId, doc){
+    return !!userId;
+  }
+});
 
+
+//SCHEMA
 CatalogSchema = new SimpleSchema({
   name: {
     type: String,
