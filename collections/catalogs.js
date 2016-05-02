@@ -72,6 +72,9 @@ Meteor.methods({
           inMenu: !currentState
         }
       });
+    },
+    deleteCatalog: function(id){
+      Catalogs.remove(id);
     }
 });
 

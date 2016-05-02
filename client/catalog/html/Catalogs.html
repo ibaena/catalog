@@ -1,14 +1,18 @@
 <template name="Catalogs">
-  {{> CatalogItem}}
+  {{#if $.Session.get 'NewItem'}}
+    {{> CatalogItem}}
+  {{else}}
+    <button class="new-recipe">New Item</button>
+  {{/if}}
   <section class="recipes">
     {{#if Template.subscriptionsReady}}
       {{#each catalogs}}
         {{> Item}}
       {{/each}}
     {{else}}
-    <p>
-      loading
-    </p>
-  {{/if}}
-</section>
+      <p>
+        loading
+      </p>
+    {{/if}}
+  </section>
 </template>

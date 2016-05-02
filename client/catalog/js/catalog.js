@@ -12,3 +12,9 @@ Template.Catalogs.helpers({
     return Catalogs.find({});
   }
 });
+
+Template.Catalogs.events({
+  'click .new-recipe': () =>{
+    Session.set('NewItem', true);
+  }
+});
