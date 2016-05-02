@@ -4,6 +4,9 @@ Catalogs = new Mongo.Collection('catalogs');
 Catalogs.allow({
   insert: function(userId, doc) {
     return !!userId;
+  },
+  update: function(userId, doc){
+    return !!userId;
   }
 });
 
@@ -60,6 +63,16 @@ CatalogSchema = new SimpleSchema({
       type: "hidden"
     }
   }
+});
+
+Meteor.methods({
+    toggleMenuItem: function(id, currentState){
+      Catalogs.update(id,{
+        $set:{
+          inMenu: !currentState
+        }
+      });
+    }
 });
 
 Catalogs.attachSchema(CatalogSchema);

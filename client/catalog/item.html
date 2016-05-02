@@ -1,14 +1,16 @@
 <template name="Item">
-  <article class="recipe">
+  <article class="recipe {{#if inMenu}}in-menu{{/if}}">
     <h3>{{name}}</h3>
     <p>
       {{descs}}
     </p>
     <p>
       {{#each specs}}
-      <span class="ingredient">{{name}} - {{desc}}</span>
+        <span class="ingredient">{{name}} - {{desc}}</span>
       {{/each}}
     </p>
     <a href="/item/{{_id}}">View Details</a>
+    <button class="btn-primary toggle-menu">Add To Menu</button>
+    <button class="btn-deny toggle-menu">Remove From Menu</button>
   </article>
 </template>
