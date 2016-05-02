@@ -1,0 +1,20 @@
+<template name="MyList">
+  <h1 class="page-title">My Item List</h1>
+  <ul class="shopping-list">
+    {{#each mycatalog}}
+      {{#each specs}}
+        <li>
+          {{name}}
+          -
+          <span class="amount">{{desc}}</span>
+        </li>
+      {{/each}}
+    {{else}}
+    <li>
+      <p>Please add
+        <a href="/catalog-book">Items to list</a>
+      </p>
+    </li>
+    {{/each}}
+  </ul>
+</template>
